@@ -177,11 +177,11 @@ addressInput.addEventListener("input", function(event){
 // Finalizar pedido
 checkoutBtn.addEventListener("click", function(){
 
-  const isOpen = checkNatureHarvestOpen();
+  const isOpen = checkAgroMecânicaOpen();
   if(!isOpen){
 
     Toastify({
-      text: "Ops a NatureHarvest está fechada!",
+      text: "Ops a AgroMecânica está fechada!",
       duration: 3000,
       close: true,
       gravity: "top", // `top` or `bottom`
@@ -210,7 +210,7 @@ checkoutBtn.addEventListener("click", function(){
   }).join("")
 
   const message = encodeURIComponent(cartItems)
-  const phone = "+55 42 9107-3719"
+  const phone = "+55 42 98429-8878"
 
   window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
 
@@ -221,7 +221,7 @@ checkoutBtn.addEventListener("click", function(){
 
 
 // Verificar a hora e manipular o card horario
-function checkNatureHarvestOpen(){
+function checkAgroMecânicaOpen(){
   const data = new Date();
   const hora = data.getHours();
   return hora >= 7 && hora < 18; 
@@ -230,7 +230,7 @@ function checkNatureHarvestOpen(){
 
 
 const spanItem = document.getElementById("date-span")
-const isOpen = checkNatureHarvestOpen();
+const isOpen = checkAgroMecânicaOpen();
 
 if(isOpen){
   spanItem.classList.remove("bg-red-500");
